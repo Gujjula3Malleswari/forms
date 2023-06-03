@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <form onsubmit="return validate()">
+        <input type="text" placeholder="enter firstname" id="firstname"/>
+        <input  placeholder="mobile number" id="mobile"/>
+        <input placeholder="emailaddress" id="email"/>
+        <input placeholder="password" id="password"/>
+        <button>Submit</button>
+    </form>
+    <script>
+        function validate(){
+            var firstName=document.getElementById("firstname").value
+            var mobile=document.getElementById("mobile").value
+            var email=document.getElementById("email").value
+            var password=document.getElementById("password").value
+            var mobileCheck=/^[0-9]{10}$/
+            var firstNamecheck=/^[a-zA-Z ]+$/
+            var emailCheck=/^[a-z0-9.#]+@[a-z]+\.[a-z]{2,3}$/
+            var passwordCheck=/^[A-Za-z0-9.!@#$%^&*_+,?/]{6,11}$/
+
+            if(firstName==""|| firstName.length<3){
+                alert("user enter your data ma")
+                return false
+            }
+            if(!firstName.match(firstNamecheck)){
+                alert("name must carry only alphabets")
+                return false
+            }
+            if(!mobile.match(mobileCheck)){
+                alert("please enter your number")
+                return false
+            }
+            if(!email.match(emailCheck)){
+                alert("enter valid mail")
+                return false
+            }
+            if(!password.match(passwordcheck)){
+                alert("invalid password")
+                return false
+            }
+            return true
+        }
+    </script>
+</body>
+</html>
